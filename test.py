@@ -1,5 +1,1 @@
-import pandas as pd
-import numpy as np
-
 print("a")
-print("b")
