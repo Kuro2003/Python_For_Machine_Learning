@@ -71,17 +71,17 @@ bird_movement = 0
 game_active = True
 
 #tạo background
-background = pygame.image.load('assets/background-night.png').convert()
+background = pygame.image.load(r'D:\Python_Code\Game_Basic\flappy_bird\assets\background-night.png').convert()
 background = pygame.transform.scale2x(background)
 
 #tạo floor
-floor = pygame.image.load('assets/floor.png').convert()
+floor = pygame.image.load(r'D:\Python_Code\Game_Basic\flappy_bird\assets\floor.png').convert()
 floor = pygame.transform.scale2x(floor)
 
 #tạo bird
-bird_down = pygame.transform.scale2x(pygame.image.load('assets/yellowbird-downflap.png').convert_alpha())
-bird_mid = pygame.transform.scale2x(pygame.image.load('assets/yellowbird-midflap.png').convert_alpha())
-bird_up = pygame.transform.scale2x(pygame.image.load('assets/yellowbird-upflap.png').convert_alpha())
+bird_down = pygame.transform.scale2x(pygame.image.load(r'D:\Python_Code\Game_Basic\flappy_bird\assets\yellowbird-downflap.png').convert_alpha())
+bird_mid = pygame.transform.scale2x(pygame.image.load(r'D:\Python_Code\Game_Basic\flappy_bird\assets\yellowbird-midflap.png').convert_alpha())
+bird_up = pygame.transform.scale2x(pygame.image.load(r'D:\Python_Code\Game_Basic\flappy_bird\assets\yellowbird-upflap.png').convert_alpha())
 bird_list = [bird_down, bird_mid, bird_up]
 bird_index = 0
 bird = bird_list[bird_index]
@@ -95,7 +95,7 @@ birdflap = pygame.USEREVENT + 1
 pygame.time.set_timer(birdflap,200)
 
 #tạo ống
-pipe_surface = pygame.image.load('assets/pipe-green.png').convert()
+pipe_surface = pygame.image.load(r'D:\Python_Code\Game_Basic\flappy_bird\assets\pipe-green.png').convert()
 pipe_surface = pygame.transform.scale2x(pipe_surface)
 pipe_list = []
 
@@ -105,18 +105,18 @@ pygame.time.set_timer(spawnpipe,1200)
 pipe_height = [200,250,300,350,400,450,500]
 
 #tạo màn hình kết thúc
-game_over_surface = pygame.transform.scale2x(pygame.image.load('assets/message.png').convert_alpha())
+game_over_surface = pygame.transform.scale2x(pygame.image.load(r'D:\Python_Code\Game_Basic\flappy_bird\assets\message.png').convert_alpha())
 game_over_rect = game_over_surface.get_rect(center = (216,384))
 
 #Chen am thanh
-flap_sound = pygame.mixer.Sound('sound/sfx_wing.wav')
-hit_sound = pygame.mixer.Sound('sound/sfx_hit.wav')
-score_sound = pygame.mixer.Sound('sound/sfx_point.wav')
+flap_sound = pygame.mixer.Sound(r'D:\Python_Code\Game_Basic\flappy_bird\sound\sfx_wing.wav')
+hit_sound = pygame.mixer.Sound(r'D:\Python_Code\Game_Basic\flappy_bird\sound\sfx_hit.wav')
+score_sound = pygame.mixer.Sound(r'D:\Python_Code\Game_Basic\flappy_bird\sound\sfx_point.wav')
 score_sound_countdown = 100
 
 
 clock = pygame.time.Clock()
-game_font = pygame.font.Font('04B_19.ttf',40)
+game_font = pygame.font.Font(r'D:\Python_Code\Game_Basic\flappy_bird\04B_19.ttf',40)
 score = 0
 high_score = 0
 
