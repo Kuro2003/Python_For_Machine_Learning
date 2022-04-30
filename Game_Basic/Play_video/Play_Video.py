@@ -1,6 +1,7 @@
 import pygame
 import webbrowser
 from random import randint
+import os
 
 class Video:
 	def __init__(self, title, link):
@@ -45,10 +46,10 @@ class TextButton:
 
 class Background(pygame.sprite.Sprite):
 	def __init__(self, image_file, location):
-	    pygame.sprite.Sprite.__init__(self)  #call Sprite initializer
-	    self.image = pygame.image.load(image_file)
-	    self.rect = self.image.get_rect()
-	    self.rect.left, self.rect.top = location
+		pygame.sprite.Sprite.__init__(self)  #call Sprite initializer
+		self.image = pygame.image.load(image_file)
+		self.rect = self.image.get_rect()
+		self.rect.left, self.rect.top = location
 
 def read_video_from_txt(file):
 	title = file.readline()
@@ -74,7 +75,7 @@ def read_playlist_from_txt(file):
 
 def read_playlists_from_txt():
 	playlists = []
-	with open("data.txt", "r") as file:
+	with open(r"D:\Python_Code\Game_Basic\Play_video\data.txt", "r") as file:
 		total = file.readline()
 		for i in range(int(total)):
 			playlist = read_playlist_from_txt(file)
@@ -88,14 +89,14 @@ running = True
 BLACK = (0,0,0)
 clock = pygame.time.Clock()
 
-BackGround = Background("de-thuong.jpg", [0,0])
+BackGround = Background(r"D:\Python_Code\Game_Basic\Play_video\de-thuong.jpg", [0,0])
 
 prompt = 0
-BackGround1 = Background("dep.jpg", [0,0])
-BackGround2 = Background("Anh-anime.jpg", [0,0])
-BackGround3 = Background("Anh-Galaxy.jpg", [0,0])
-BackGround4 = Background("Nhung-hinh-anh.jpg", [0,0])
-BackGround5 = Background("hinh-nen.jpg", [0,0])
+BackGround1 = Background(r"D:\Python_Code\Game_Basic\Play_video\dep.jpg", [0,0])
+BackGround2 = Background(r"D:\Python_Code\Game_Basic\Play_video\Anh-anime.jpg", [0,0])
+BackGround3 = Background(r"D:\Python_Code\Game_Basic\Play_video\Anh-Galaxy.jpg", [0,0])
+BackGround4 = Background(r"D:\Python_Code\Game_Basic\Play_video\Nhung-hinh-anh.jpg", [0,0])
+BackGround5 = Background(r"D:\Python_Code\Game_Basic\Play_video\hinh-nen.jpg", [0,0])
 
 
 #Load data
