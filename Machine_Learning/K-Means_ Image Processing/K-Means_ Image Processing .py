@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 import numpy
 img = plt.imread(r"D:\Python_Code\Machine_Learning\K-Means_ Image Processing\a.jpg")
-
 width = img.shape[0]
 height = img.shape[1]
 
