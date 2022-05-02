@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from sklearn import linear_model
+import matplotlib.animation as animation
 
 def cost(x):
     m = A.shape[0]
@@ -67,22 +68,44 @@ learning_rate = 0.0001
 
 x_list = gradient_descent(x_init,learning_rate,iteration)
 
-# Draw x_list (solution by GD)
-for i in range(len(x_list)):
-    y0_x_list = x_list[i][0] + x_list[i][1] * x0_gd
-    plt.plot(x0_gd,y0_x_list,color="black")
-plt.show()
+# # Draw x_list (solution by GD)
+# for i in range(len(x_list)):
+#     y0_x_list = x_list[i][0] + x_list[i][1] * x0_gd
+#     plt.plot(x0_gd,y0_x_list,color="black")
+# plt.show()
 
-# Plot cost per iteration to determine when to stop 
-cost_list = []
-iter_list = [] 
+# plot black x_list
 for i in range(len(x_list)):
-	iter_list.append(i)
-	cost_list.append(cost(x_list[i]))
+	y0_x_list = x_list[i][0] + x_list[i][1]*x0_gd
+	plt.plot(x0_gd, y0_x_list, color='black', alpha = 0.3)
 
-plt.plot(iter_list, cost_list)
-plt.xlabel('Iteration')
-plt.ylabel('Cost value')
+# # Plot cost per iteration to determine when to stop 
+# cost_list = []
+# iter_list = [] 
+# for i in range(len(x_list)):
+# 	iter_list.append(i)
+# 	cost_list.append(cost(x_list[i]))
+
+# plt.plot(iter_list, cost_list)
+# plt.xlabel('Iteration')
+# plt.ylabel('Cost value')
+
+# Draw animation
+line , = ax.plot([],[], color = "blue")
+def update(i):
+	y0_gd = x_list[i][0][0] + x_list[i][1][0]*x0_gd
+	line.set_data(x0_gd, y0_gd)
+	return line,
+
+iters = np.arange(1,len(x_list), 1)
+line_ani = animation.FuncAnimation(fig1, update, iters, interval=50, blit=True)
+
+# legend for plot
+plt.legend(('Value in each GD iteration', 'Solution by formular', 'Inital value for GD'), loc=(0.52, 0.01))
+ltext = plt.gca().get_legend().get_texts()
+
+# title
+plt.title("Gradient Descent Animation")
 
 plt.show()
 
