@@ -1,4 +1,6 @@
 import pygame
+from settings import Settings
+
 class Ship:
     # A class to manage the ship
     def __init__(self,ai_game):
@@ -9,6 +11,23 @@ class Ship:
         self.rect = self.image.get_rect()
         # start each new ship at the bottom center of the screen
         self.rect.midbottom = self.screen_rect.midbottom
+        self.settings = Settings() 
+
+        # Movement flag
+        self.moving_right = False
+        self.moving_left = False
+
+        self.x = float(self.rect.x)
+    
+    def update(self):
+        # Update the ship's position based on the movement flag.
+        # Update the ship's x value, not the rect
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.x += self.settings.ship_speed
+        if self.moving_left and self.rect.left > 0:
+            self.x -= self.settings.ship_speed
+
+        self.rect.x = self.x    
 
     def blitme(self):
         # draw the ship at its current location.
